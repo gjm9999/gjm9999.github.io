@@ -99,35 +99,85 @@
       font-size: 14px;
       z-index: 1;
     }
-	main {
-      max-width: 800px;
-      margin: auto;
-      padding: 20px;
-      background-color: rgba(0, 0, 0, 0.7);
-      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
-      border-radius: 10px;
-      font-size: 20px;
-      line-height: 1.5;
-      text-align: justify;
-    }
-    /* 设置博客链接按钮 */
-    .blog-link {
-      display: inline-block;
-      padding: 10px 20px;
-      background-color: #c0392b;
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
-      transition: all 0.3s ease-in-out;
-      margin-top: 30px;
-      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-    }
-    /* 设置博客链接按钮的悬停特效 */
-    .blog-link:hover {
-      background-color: #e74c3c;
-      transform: scale(1.1);
-      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
-    }
+	section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+            padding: 20px;
+        }
+        section div {
+            flex-basis: 30%;
+            margin: 20px;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 5px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            z-index: 2;
+            transition: box-shadow 0.3s ease;
+        }
+        section div:hover {
+            box-shadow: 0px 0px 10px #ccc;
+        }
+        section div:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255,255,255,0.8);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+        section div:hover:before {
+            opacity: 1;
+        }
+        section h2 {
+            margin-top: 0;
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: white;
+            position: relative;
+            z-index: 2;
+            transition: transform 0.3s ease;
+        }
+        section div:hover h2 {
+            transform: translateY(-50%);
+        }
+        section p {
+            margin-top: 10px;
+            margin-bottom: 20px;
+            font-size: 16px;
+            color: #333;
+            line-height: 1.5;
+            position: relative;
+            z-index: 2;
+            transition: transform 0.3s ease;
+        }
+        section div:hover p {
+            transform: translateY(-50%);
+        }
+        section a {
+            display: block;
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+            font-weight: bold;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            transition: transform 0.3s ease;
+        }
+        section div:hover a {
+            transform: translateY(-50%);
+        }
   </style>
 </head>
 <body>
@@ -141,17 +191,26 @@
     <p align="center">我从事芯片设计工作，也热爱编程和实现一些有趣的想法</p>
     <p align="center">在这里，您可以了解我的技能和爱好，还可以阅读我的文章</p>
   </main>
-    <main>
-    <p href="#" class="blog-link">我的博客</p>
-    <li> <a href="https://blog.csdn.net/moon9999">CSDN</a> </li>
-	<li> <a href="https://home.cnblogs.com/u/mingmingruyue99">博客园</a> </li>
-	<li> <a href="https://developer.aliyun.com/profile/expert/u4d5oiilbsbyi">阿里云社区</a> </li>
-	<p href="#" class="blog-link">我的作品</p>
-	<li> <a href="https://github.com/gjm9999">github主页</a> </li>
-	<li> <a href="https://gitee.com/gjm9999">gitee主页</a> </li>
-	<p href="#" class="blog-link">我的闲暇分享</p>
-	<li> <a href="https://baijiahao.baidu.com/builder/rc/home">我的百家号</a> </li>
-  </main>
+  <section>
+        <div>
+            <h2>我的博客</h2>
+            <a href="https://blog.csdn.net/moon9999">CSDN</a>
+            <a href="https://home.cnblogs.com/u/mingmingruyue99">博客园</a>
+			<a href="https://developer.aliyun.com/profile/expert/u4d5oiilbsbyi">阿里云社区</a>
+			
+        </div>
+        <div>
+            <h2>我的资源</h2>
+            <a href="https://github.com/gjm9999">github主页</a>
+			<a href="https://gitee.com/gjm9999">gitee主页</a>
+			<a href="https://inscode.csdn.net/@moon9999">inscode主页</a>
+			
+        </div>
+        <div>
+            <h2>我的闲暇分享</h2>
+            <a href="https://baijiahao.baidu.com/builder/rc/home">百家号</a>
+        </div>
+  </section>
   <footer>
     &copy; 2023 我的个人网站. 版权所有.
   </footer>
