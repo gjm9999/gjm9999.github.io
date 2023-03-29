@@ -6,7 +6,7 @@
   <style>
     /* 设置背景图片 */
     body {
-      background-image: url("https://cdn.pixabay.com/photo/2016/11/21/13/14/background-image-1846133_960_720.jpg");
+      background-image: url("background.jpg");
       background-size: cover;
       background-position: center center;
       background-attachment: fixed;
@@ -18,7 +18,7 @@
       width: 150px;
       height: 150px;
       border-radius: 50%;
-      background-image: url("https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png");
+      background-image: url("head.png");
       background-size: cover;
       background-position: center center;
       margin: 50px auto;
@@ -55,7 +55,7 @@
       text-align: center;
       font-size: 60px;
       text-shadow: 2px 2px 2px black;
-      margin-top: 200px;
+      margin-top: 100px;
     }
     /* 设置主要内容 */
     main {
@@ -99,26 +99,61 @@
       font-size: 14px;
       z-index: 1;
     }
+	main {
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.7);
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+      border-radius: 10px;
+      font-size: 20px;
+      line-height: 1.5;
+      text-align: justify;
+    }
+    /* 设置博客链接按钮 */
+    .blog-link {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #c0392b;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: all 0.3s ease-in-out;
+      margin-top: 30px;
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    }
+    /* 设置博客链接按钮的悬停特效 */
+    .blog-link:hover {
+      background-color: #e74c3c;
+      transform: scale(1.1);
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    }
   </style>
 </head>
 <body>
   <nav>
-    <a href="#">主页</a>
-    <a href="#">个人介绍</a>
-    <a href="#">博客</a>
+    <a href="#">尼德兰的喵·主页</a>
   </nav>
   <div class="avatar"></div>
-  <h1>欢迎来到我的个人网站</h1>
+  <h1>欢迎来到 尼德兰的喵 个人主页</h1>
   <main>
-    <p>这里是我的个人网站，用来展示我的作品和个人信息。</p>
-    <p>我热爱编程和设计，喜欢创造有趣和实用的东西。</p>
-    <p>在这里，您可以了解我的项目和技能，还可以阅读我的博客。</p>
-    <!-- 在这里添加博客链接 -->
-    <a href="#" class="blog-link">查看我的博客</a>
+    <p align="center">这里是我尝试创作的个人网站，用来展示我的博客和个人信息</p>
+    <p align="center">我从事芯片设计工作，也热爱编程和实现一些有趣的想法</p>
+    <p align="center">在这里，您可以了解我的技能和爱好，还可以阅读我的文章</p>
+  </main>
+    <main>
+    <p href="#" class="blog-link">我的博客</p>
     <li> <a href="https://blog.csdn.net/moon9999">CSDN</a> </li>
+	<li> <a href="https://home.cnblogs.com/u/mingmingruyue99">博客园</a> </li>
+	<li> <a href="https://developer.aliyun.com/profile/expert/u4d5oiilbsbyi">阿里云社区</a> </li>
+	<p href="#" class="blog-link">我的作品</p>
+	<li> <a href="https://github.com/gjm9999">github主页</a> </li>
+	<li> <a href="https://gitee.com/gjm9999">gitee主页</a> </li>
+	<p href="#" class="blog-link">我的闲暇分享</p>
+	<li> <a href="https://baijiahao.baidu.com/builder/rc/home">我的百家号</a> </li>
   </main>
   <footer>
-    &copy; 2021 我的个人网站. 版权所有.
+    &copy; 2023 我的个人网站. 版权所有.
   </footer>
 </body>
 </html>
