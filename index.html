@@ -1,8 +1,124 @@
-<p>Hello 大家好</p>
-<p>我是尼德兰的喵，这是我的个人网站。 </p>
-<p>很高兴你来到这里, 你可以在以下的网站找到我</p>
-
-<ul>
-  <li> <a href="https://blog.csdn.net/moon9999">CSDN</a> </li>
-  <li> <a href="https://developer.aliyun.com/profile/expert/u4d5oiilbsbyi">阿里云社区</a> </li>
-</ul>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>个人网站</title>
+  <style>
+    /* 设置背景图片 */
+    body {
+      background-image: url("https://cdn.pixabay.com/photo/2016/11/21/13/14/background-image-1846133_960_720.jpg");
+      background-size: cover;
+      background-position: center center;
+      background-attachment: fixed;
+      font-family: 'Arial', sans-serif;
+      color: white;
+    }
+    /* 设置头像 */
+    .avatar {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background-image: url("https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png");
+      background-size: cover;
+      background-position: center center;
+      margin: 50px auto;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+    /* 设置导航栏 */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 10px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1;
+    }
+    /* 设置导航栏链接 */
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 20px;
+      margin-right: 20px;
+      transition: all 0.3s ease-in-out;
+    }
+    /* 设置导航栏链接的悬停特效 */
+    nav a:hover {
+      color: #c0392b;
+      transform: scale(1.2);
+    }
+    /* 设置标题 */
+    h1 {
+      text-align: center;
+      font-size: 60px;
+      text-shadow: 2px 2px 2px black;
+      margin-top: 200px;
+    }
+    /* 设置主要内容 */
+    main {
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.7);
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+      border-radius: 10px;
+      font-size: 20px;
+      line-height: 1.5;
+      text-align: justify;
+    }
+    /* 设置博客链接按钮 */
+    .blog-link {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #c0392b;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: all 0.3s ease-in-out;
+      margin-top: 30px;
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    }
+    /* 设置博客链接按钮的悬停特效 */
+    .blog-link:hover {
+      background-color: #e74c3c;
+      transform: scale(1.1);
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    }
+    /* 设置页脚 */
+    footer {
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 10px;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      font-size: 14px;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">主页</a>
+    <a href="#">个人介绍</a>
+    <a href="#">博客</a>
+  </nav>
+  <div class="avatar"></div>
+  <h1>欢迎来到我的个人网站</h1>
+  <main>
+    <p>这里是我的个人网站，用来展示我的作品和个人信息。</p>
+    <p>我热爱编程和设计，喜欢创造有趣和实用的东西。</p>
+    <p>在这里，您可以了解我的项目和技能，还可以阅读我的博客。</p>
+    <!-- 在这里添加博客链接 -->
+    <a href="#" class="blog-link">查看我的博客</a>
+    <li> <a href="https://blog.csdn.net/moon9999">CSDN</a> </li>
+  </main>
+  <footer>
+    &copy; 2021 我的个人网站. 版权所有.
+  </footer>
+</body>
+</html>
