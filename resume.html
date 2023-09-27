@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的简历</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #DFF0D8; /* 轻草绿色背景 */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section h2 {
+            border-bottom: 2px solid #333;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+            font-size: 1.5em;
+            color: #333;
+        }
+
+        .section p {
+            margin: 0;
+            color: #555;
+        }
+
+        .section ul {
+            list-style-type: none;
+            padding: 0;
+            color: #555;
+        }
+
+        .section ul li {
+            margin-bottom: 5px;
+        }
+
+        .profile-img {
+            max-width: 150px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <!-- <img src="your_photo.jpg" alt="个人照片" class="profile-img"> -->
+        <h2>个人信息</h2>
+        <p>姓名：您的姓名</p>
+        <p>联系方式：您的联系方式</p>
+        <p>邮箱：您的邮箱</p>
+        <p>地址：您的地址</p>
+    </div>
+
+    <div class="section">
+        <h2>教育背景</h2>
+        <ul>
+            <li>学校：您的学校</li>
+            <li>专业：您的专业</li>
+            <li>学位：您的学位</li>
+            <li>毕业时间：毕业时间</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>工作经历</h2>
+        <ul>
+            <li>公司：公司名称</li>
+            <li>职位：您的职位</li>
+            <li>时间：工作时间</li>
+            <li>工作内容：</li>
+            <p>工作内容描述...</p>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>技能</h2>
+        <ul>
+            <li>技能1</li>
+            <li>技能2</li>
+            <li>技能3</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>项目经历</h2>
+        <ul>
+            <li>项目名称：项目1</li>
+            <li>项目描述：</li>
+            <p>项目描述...</p>
+            <li>时间：项目1时间</li>
+            <li>责任和成就：</li>
+            <p>项目1期间您的责任和取得的成就...</p>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>项目经历</h2>
+        <ul>
+            <li>项目名称：项目2</li>
+            <li>项目描述：</li>
+            <p>项目描述...</p>
+            <li>时间：项目2时间</li>
+            <li>责任和成就：</li>
+            <p>项目2期间您的责任和取得的成就...</p>
+        </ul>
+    </div>
+
+    <button id="downloadButton">下载 PDF</button>
+
+    <script>
+        document.getElementById('downloadButton').addEventListener('click', function() {
+            var element = document.getElementById('resumeContent');
+            html2pdf(element);
+        });
+    </script>
+
+    <script src="https://rawgit.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
+</body>
+</html>
