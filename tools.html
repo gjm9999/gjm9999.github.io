@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>尼德兰的喵·工具页</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(to right, #1c0d33, #003366, #336699, #a8c3bc, #336699, #003366, #1c0d33);
+        margin: 0;
+        padding: 0;
+    }
+    #container {
+        max-width: 800px;
+        margin: 20px auto;
+        overflow: hidden;
+    }
+    .section-container {
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 10px; /* 更大的边框半径 */
+        margin-bottom: 20px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        transition: transform 0.3s ease;
+    }
+    .section-container:hover {
+        transform: translateY(-5px);
+    }
+    h2 {
+        color: #333;
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 10px;
+    }
+    img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        display: block;
+        margin: 0 auto;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    article {
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 15px;
+        border-radius: 8px; /* 更大的边框半径 */
+        margin-bottom: 15px;
+        transition: transform 0.3s ease;
+        position: relative; /* 相对定位 */
+    }
+    article:hover {
+        transform: translateY(-5px);
+    }
+    article h3 {
+        color: #333;
+    }
+    a {
+        color: #007bff;
+        text-decoration: none;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+    .details-container {
+        position: absolute; /* 绝对定位 */
+        bottom: 10px; /* 调整位置 */
+        right: 20px;
+        opacity: 0; /* 默认隐藏 */
+        transition: opacity 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+    article:hover .details-container {
+        opacity: 1; /* 鼠标悬停时显示 */
+    }
+    .details-link {
+        display: inline-block; /* 行内块元素 */
+        margin-left: 10px; /* 调整与“返回目录”的间距 */
+    }
+    .details-link a {
+        display: inline-block; /* 行内块元素 */
+    }
+    .sub-directory strong {
+        display: block;
+        padding: 10px; /* 调整标题的内边距 */
+        border: 1px solid #ccc; /* 边框样式 */
+        border-radius: 8px; /* 边框半径 */
+        background-color: #f0f0f0; /* 背景颜色 */
+        margin-top: 10px; /* 调整标题之间的间距 */
+        font-weight: bold; /* 加粗字体 */
+    }
+    .sub-directory ul {
+        line-height: 1.5; /* 增加行间距 */
+        padding-left: 20px; /* 缩进两格 */
+    }
+    .other-links {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .other-links li {
+        flex: 1 0 auto;
+        margin-right: 10px;
+    }
+</style>
+</head>
+<body>
+
+<div id="container">
+
+<!-- 作者介绍 -->
+<section class="section-container">
+    <h2>页面导览</h2>
+    <img src="./logo.png" alt="作者头像">
+    <p>欢迎来到尼德兰的喵·脚本工具汇总网页！这里汇总了个人完成的所有服务于芯片设计验证与流程的脚本工具，我将为您提供详细的介绍和使用说明。所有工具均为开源状态，帮助大家更轻松地完成工作任务。</p>
+    <p>如果您有任何的建议或意见，欢迎通过知乎、CSDN、公众号、小红书和小报童主页和我联系，欢迎您的反馈，也欢迎您对我的主页进行关注！</p>
+</section>
+
+<!-- 脚本目录 -->
+<section class="section-container">
+    <h2>工具目录</h2>
+    <ul class="sub-directory">
+        <li>
+            <strong>工作站脚本</strong>
+            <ul>
+                <li><a href="#script-auto_testbench">auto_testbench —— 定向验证环境自动生成脚本</a></li>
+                <li><a href="#script-auto_assert">   auto_assert    —— 自动生成实时检查和结束比对所需断言</a></li>
+                <li><a href="#script-auto_unfold">   auto_unfold    —— 重复循环展开和提升无效代码行数利器</a></li>
+                <li><a href="#script-auto_dff">      auto_dff       —— 自动进行寄存器声明与例化</a></li>
+                <li><a href="#script-gen_link">      gen_link       —— 自动进行顶层RTL互连</a></li>
+                <li><a href="#script-gen_uvm_agent"> gen_uvm_agent  —— 自动生成agent组件和自测环境</a></li>
+                <li><a href="#script-gen_uvm_tb">    gen_uvm_tb     —— 自动生成uvm验证环境</a></li>
+                <li><a href="#script-cmp_rtl">       cmp_rtl        —— 对RTL进行编译</a></li>
+                <li><a href="#script-find_key">      find_key       —— 基于编译结果进行关键词搜索</a></li>
+                <li><a href="#script-align_log">     align_log      —— 对文件进行对齐</a></li>
+                <li><a href="#script-cal_clk">       cal_clk        —— 时钟频率与周期转换</a></li>
+                <li><a href="#script-gen_rtl_dummy"> gen_rtl_dummy  —— 生成rtl的dummy文件和输出驱动</a></li>
+                <li><a href="#script-git_push">      git_push       —— 更新并筛选需要push的文件进行提交</a></li>
+                <li><a href="#script-svn_back">      svn_back       —— 对指定文件进行svn指定版本回退</a></li>
+                <li><a href="#script-gen_xml_trans"> gen_xml_trans  —— 根据寄存器的excel描述生成xml描述文件</a></li>
+                <li><a href="#script-gen_reg">       gen_reg        —— 根据寄存器的xml描述生成RAL与RTL</a></li>
+                <li><a href="#script-gen_ral_rand">  gen_ral_rand   —— 根据RAL生成寄存器随机的RAL文件</a></li>
+                <li><a href="#script-chinese_characters_gen">  chinese_characters_gen   —— 基于Verdi的波形活字印刷术</a></li>
+            </ul>
+        </li>
+        <li>
+            <strong>Windows工具</strong>
+            <ul>
+                <li><a href="#script-float_num_trans">  进制与浮点数转换器</a></li>
+                <li><a href="#script-fix_num_trans">    定点数转换器</a></li>
+                <li><a href="#script-bandwidth_cnt">    时钟位宽与性能计算器</a></li>
+                <li><a href="#script-get_word_comments">WORD批注内容整理器</a></li>
+                <li><a href="#script-get_keyword">      WORD关键词递归查找器</a></li>
+                <li><a href="#script-clk_dis">          更灵活的懒人周期频率转换器</a></li>
+            </ul>
+        </li>
+    </ul>
+</section>
+
+<!-- 脚本介绍 -->
+<section class="section-container">
+    <h2>工具介绍</h2>
+    
+    <!-- 脚本 -->
+    <article id="script-auto_testbench">
+        <h3>auto_testbench</h3>
+        <p>当你着手开始写新的RTL时，想不想边写边编译边清理bug呢？</p>
+        <p>当你对一个语法感到费劲，需不需要立刻有个环境做一下实验呢？</p>
+        <p>当你费了九牛二虎之力终于写完个模块时，有没有立刻看看波形的悸动呢？</p>
+        <p>当你完成了初步的debug之后，要不要来些独立自主的随机测试呢？</p>           
+        <p>那么请不要犹豫，果断来入手一波疑似RTL定向验证的巅峰之作auto_testbench吧！</p>
+        <div class="details-container">
+            <a class="details-link" href="./auto_testbench/auto_testbench.html" target="_blank">查看详情</a>
+        </div>
+    </article>
+
+    <!-- 脚本 -->
+    <article id="script-auto_assert">
+        <h3>auto_assert</h3>
+        <p>不想写不会写断言，又想借助断言检查及早检查隐藏的问题加速定位。</p>
+        <p>对于这种既要又要的需求...是时候搬出auto_assert脚本了！</p>
+        <p>写断言不用一句话，各种检查哗啦啦的来！</p>
+        <div class="details-container">
+            <a class="details-link" href="./auto_assert/auto_assert.html" target="_blank">查看详情</a>
+        </div>
+    </article>    
+
+    <!-- 脚本 -->
+    <article id="script-auto_unfold">
+        <h3>auto_unfold</h3>
+        <p>脚本最原始的需求来源，是对generate for进行循环展开。脚本的另外一个功能是，在以提交代码量为考核标准的情况下生成无限多的代码出来！</p>
+        <p>“注释即代码”系列里我投入精力最多的一个工具，时至今日基本已经开发至完备了。如果再进一步的深挖就可能需要挖到代码编译里去了。</p>
+        <div class="details-container">
+            <a class="details-link" href="./auto_unfold/auto_unfold.html" target="_blank">查看详情</a>
+        </div>
+    </article>
+
+    <!-- 脚本 -->
+    <article id="script-auto_dff">
+        <h3>auto_dff</h3>
+        <p>小伙伴应该知道我一直比较推崇围绕寄存器进行编码的RTL风格。</p>
+        <p>终于在某天我连一行一行例化寄存器的事情都不想做了，因此就出现了这个脚本auto_dff。</p>
+        <div class="details-container">
+            <a class="details-link" href="./auto_dff/auto_dff.html" target="_blank">查看详情</a>
+        </div>
+    </article>    
+
+    <!-- 脚本 -->
+    <article id="script-gen_link">
+        <h3>gen_link</h3>
+        <p>gen_link是我担心某一天用不了verilog-mode而仿照其开发的实现模块例化与互连功能的一款脚本。</p>
+        <p>后面因为我熟悉了如何安装与适配verilog-mode，因此没有继续开发其他的功能，目前基本数据“又不是不能用”的状态。</p>
+        <div class="details-container">
+            <a class="details-link" href="./gen_link/gen_link.html" target="_blank">查看详情</a>
+        </div>
+    </article>
+
+    <!-- 脚本 -->
+    <article id="script-gen_uvm_agent">
+        <h3>gen_uvm_agent</h3>
+        <p>握手接口因为其反压机制非常的简单，进而uvm agent是非常容易通过脚本来生成的。</p>
+        <p>目前gen_uvm_agent基本已经完全实现工程实用需求，其他类型的接口agent也可以根据该脚本生成的组件略加修改而得到。</p>
+        <div class="details-container">
+            <a class="details-link" href="https://mp.weixin.qq.com/s/eZqEpekAfEJaVWdYETiCxA" target="_blank">查看详情</a>
+        </div>
+    </article>
+
+    <article id="script-gen_uvm_tb">
+        <h3>gen_uvm_tb</h3>
+        <p>为了补全gen_uvm_agent后环境集成的功能而开发的脚本，脚本实现的功能相对比较简单。</p>
+        <p>对生成model和connect功能暂时没有开发（connect严重依赖于gen_agent等公共环境的约定俗成，生成model单纯是我自己习惯先写model再集成），之后有进一步的需求之后再进行开发吧</p>
+        <div class="details-container">
+            <a class="details-link" href="https://blog.csdn.net/moon9999/article/details/128123387" target="_blank">查看详情</a>
+        </div>
+    </article>
+
+    <article id="script-cmp_rtl">
+        <h3>cmp_rtl</h3>
+        <p>顾名思义，用于快速编译RTL代码的脚本。</p>
+        <div class="details-container">
+            <a class="details-link" href="./cmp_rtl/cmp_rtl.html" target="_blank">查看详情</a>
+        </div>
+    </article>
+
+    <article id="script-find_key">
+        <h3>find_key</h3>
+        <p>用来查找编译文件内的关键字。</p>
+        <p>具体使用的场景呢，举个例子，比如说我想找一个parameter是在哪个文件定义的，或者一个宏定义的位置，或者某个uvm关键字的声明位置，那么就可以使用脚本吃编译的log（或者综合的log），然后按文件去查找关键字所在的位置完成索引过程。</p>
+        <div class="details-container">
+            <a class="details-link" href="https://blog.csdn.net/moon9999/article/details/128267784" target="_blank">查看详情</a>
+        </div>
+    </article>
+
+    <article id="script-align_log">
+        <h3>align_log</h3>
+        <p>小朋宇，你有没有因为工具生成的log参差不齐而强迫症病发呢？</p>
+        <p>不用担心，就决心把这个事情给他解决掉！</p>
+        <div class="details-container">
+            <a class="details-link" href="https://blog.csdn.net/moon9999/article/details/120688673" target="_blank">查看详情</a>
+        </div>
+    </article>
+
+    <article id="script-cal_clk">
+        <h3>cal_clk</h3>
+        <p>本人永远记不住时钟周期和频率的对应关系，比如说1.5GHz的时钟周期是多少呢？</p>
+        <p>预期内耗自己，不如内耗工具，人会犯错但是工具不会！</p>
+        <div class="details-container">
+            <a class="details-link" href="https://blog.csdn.net/moon9999/article/details/119157253" target="_blank">查看详情</a>
+        </div>
+    </article>
+
+    <article id="script-gen_rtl_dummy">
+        <h3>gen_rtl_dummy</h3>
+        <p>代码还没写完，模块顶层还没封装，上层和验证催着要顶层文件去集成怎么办？</p>
+        <p>来一招瞒天过海吧，给个空的顶层就好啦！当然了，这本就是约定俗称嘛。</p>
+        <div class="details-container">
+            <a class="details-link" href="https://blog.csdn.net/moon9999/article/details/118584701" target="_blank">查看详情</a>
+        </div>
+    </article>
+
+    <article id="script-git_push">
+        <h3>git_push</h3>
+        <p>.gitignore负责反向剔除某些后缀的文件不能push，git_push负责正向筛选只想提交某些修改文件。</p>
+        <div class="details-container">
+            <a class="details-link" href="https://blog.csdn.net/moon9999/article/details/128775531" target="_blank">查看详情</a>
+        </div>
+    </article>    
+
+    <article id="script-svn_back">
+        <h3>svn_back</h3>
+        <p>个人职业生涯中独立完成的第一个脚本，其重要性不亚于初代奥特曼。</p>
+        <p>作用就是把指定的文件或者目录回退到上一个svn版本或指定版本，没有任何的难度和技巧，全是感情。</p>
+        <p>第一次真正让我感受到了脚本的魅力：取代重复和固定工作以提升效率。</p>
+        <div class="details-container">
+            <a class="details-link" href="https://blog.csdn.net/moon9999/article/details/125955122" target="_blank">查看详情</a>
+        </div>
+    </article> 
+
+    <article id="script-gen_xml_trans">
+        <h3>gen_xml_trans</h3>
+        <p>按照给出的excel格式完成寄存器描述，借助gen_xml_trans就可以生成xml描述文件。</p>
+        <p>寄存器xml描述如何转化为ral_model和寄存器rtl呢，你看下一个脚本就可以了。</p>
+        <div class="details-container">
+            <a class="details-link" href="https://blog.csdn.net/moon9999/article/details/129031666" target="_blank">查看详情</a>
+        </div>
+    </article> 
+
+    <article id="script-gen_reg">
+        <h3>gen_reg</h3>
+        <p>寄存器xml描述可以由vcs直接转化为了ral_model和寄存器rtl，该脚本就是将这一过程流程化处理。</p>
+        <p>至于寄存器的xml描述如何得到，你看上一个脚本就可以了。</p>
+        <div class="details-container">
+            <a class="details-link" href="https://blog.csdn.net/moon9999/article/details/127198079" target="_blank">查看详情</a>
+        </div>
+    </article>     
+
+    <article id="script-gen_ral_rand">
+        <h3>gen_ral_rand</h3>
+        <p>环境仿真中对于寄存器配置的随机策略是个很高深的学问。该脚本是基于“做减法”式寄存器随机策略而编写的脚本。</p>
+        <div class="details-container">
+            <a class="details-link" href="https://blog.csdn.net/moon9999/article/details/129129077" target="_blank">查看详情</a>
+        </div>
+    </article>      
+
+    <article id="script-chinese_characters_gen">
+        <h3>chinese_characters_gen</h3>
+        <p>波形活字印刷术，虽然没有任何的工程意义，但是非常有整活的意义！</p>
+        <p>用来表个白呀，写个祝福呀，整个活呀，那谁看见不得说一句：是不是有大冰！</p>
+        <div class="details-container">
+            <a class="details-link" href="https://zhuanlan.zhihu.com/p/666839738" target="_blank">查看详情</a>
+        </div>
+    </article>
+
+    <article id="script-float_num_trans">
+        <h3>进制与浮点数转换器</h3>
+        <p>浮点数在计算机科学中是一种重要的数据类型，用于表示实数。浮点数遵循IEEE 754浮点数标准，该标准规定了浮点数的表示和运算方式。</p>
+        <p>这个工具就是解决这个问题的，基于Python的struct模块进行浮点数的转换，基于int/bin/hex函数进行普通进制转换。</p>
+        <div class="details-container">
+            <a class="details-link" href="https://zhuanlan.zhihu.com/p/674798138" target="_blank">查看详情</a>
+        </div>
+    </article>
+
+    <article id="script-fix_num_trans">
+        <h3>定点数转换器</h3>
+        <p>做完浮点数转换器后一直没机会处理浮点数的结构，反而是迎面撞上了定点数的乘加运算结构。</p>
+        <p>该工具可以灵活的配置定点数，并对定点数进行多进制的转换。</p>
+        <div class="details-container">
+            <a class="details-link" href="https://zhuanlan.zhihu.com/p/677793453" target="_blank">查看详情</a>
+        </div>
+    </article>
+
+    <article id="script-bandwidth_cnt">
+        <h3>时钟位宽与性能计算器</h3>
+        <p>常言道，频率位宽与带宽，三者得其二而可得天下。</p>
+        <p>而我这个人一直对频率周期位宽带宽的换算一坨浆糊，最基础的时钟频率和周期运算我都总是转不过来弯。</p>
+        <p>所以需要一个工具来换算频率周期位宽带宽之间的关系，这就他了！</p>
+        <div class="details-container">
+            <a class="details-link" href="https://zhuanlan.zhihu.com/p/678807876" target="_blank">查看详情</a>
+        </div>
+    </article>
+
+    <article id="script-get_word_comments">
+        <h3>WORD批注内容整理器</h3>
+        <p>很多文档的review是通过批注完成的，而这些批注的待解决状态并不是非常的直观。</p>
+        <p>尤其是文档较长的时候，需要一条一条的过（当然了，word里也支持跳到下一个未解决）。如果只有一个文档还好，如果你作为交付负责人，要负责许多文档的交付质量时，一个文档一个文档的看肯定是不现实的，因此我觉得有必要做这样一个统计归档的工具。</p>
+        <div class="details-container">
+            <a class="details-link" href="https://blog.csdn.net/moon9999/article/details/125090974" target="_blank">查看详情</a>
+        </div>
+    </article>
+
+    <article id="script-get_keyword">
+        <h3>WORD关键词递归查找器</h3>
+        <p></p>1.在项目开始阶段，通过关键词检索feature，要不实在是记不住文档都在哪；</p>
+        <p>2.收尾阶段，检查是否有TODO/TBD项遗留在文档中未补全；</p>
+        <p>3.检查是否有关键信息未修改，尤其对外交付文档中是有留存旧的项目信息等；</p>
+        <p>4.进一步拓展，支持通配符模糊索引和全局替换，类似linux里grep和sed的功能；</p>
+        <div class="details-container">
+            <a class="details-link" href="https://blog.csdn.net/moon9999/article/details/117898970" target="_blank">查看详情</a>
+        </div>
+    </article>
+
+    <article id="script-clk_dis">
+        <h3>懒人周期频率转换器</h3>
+        <p>时钟位宽与性能计算器的简化版，cal_clk的可视版！</p>
+        <div class="details-container">
+            <a class="details-link" href="https://gitee.com/gjm9999/clk_dis/tree/master/dist" target="_blank">查看详情</a>
+        </div>
+    </article>
+
+</section>
+
+<!-- 其他链接 -->
+<section class="section-container">
+    <h2>其他链接</h2>
+    <ul class="other-links">
+        <li><a href="https://gitee.com/gjm9999" target="_blank">我的资源</a></li>
+        <li><a href="https://www.zhihu.com/people/ming-ming-ru-yue-76-14" target="_blank">我的知乎</a></li>
+        <li><a href="https://blog.csdn.net/moon9999" target="_blank">我的CSDN</a></li>
+        <li><a href="https://mp.weixin.qq.com/s/59DCqgPzbdWfc_WyU77g9A" target="_blank">我的公众号</a></li>
+        <li><a href="https://xiaobot.net/post/1e3106be-99f0-47ed-88bc-1009ad8583fd" target="_blank">我的小报童</a></li>
+        <li><a href="https://www.xiaohongshu.com/user/profile/6329229d0000000023027db6" target="_blank">我的小红书</a></li>
+    </ul>
+</section>
+
+</div>
+
+</body>
+</html>
