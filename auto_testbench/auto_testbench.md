@@ -40,7 +40,7 @@
 脚本工作于linux环境，下载工程后执行命令：
 
 ```
-{$script_path}/auto_testbench [-f module.v] [-v]
+${script_path}/auto_testbench [-f module.v] [-v]
 ```
 
 -f：后缀rtl的文件名，推荐在rtl所在目录下进行执行，也支持带有路径，如不加则生成空工程用于仿真；

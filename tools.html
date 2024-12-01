@@ -132,6 +132,7 @@
                 <li><a href="#script-gen_link">      gen_link       —— 自动进行顶层RTL互连</a></li>
                 <li><a href="#script-gen_uvm_agent"> gen_uvm_agent  —— 自动生成agent组件和自测环境</a></li>
                 <li><a href="#script-gen_uvm_tb">    gen_uvm_tb     —— 自动生成uvm验证环境</a></li>
+                <li><a href="#script-gen_dut_inst">  gen_dut_inst   —— 自动生成环境DUT例化和agent互连代码</a></li>
                 <li><a href="#script-cmp_rtl">       cmp_rtl        —— 对RTL进行编译</a></li>
                 <li><a href="#script-find_key">      find_key       —— 基于编译结果进行关键词搜索</a></li>
                 <li><a href="#script-align_log">     align_log      —— 对文件进行对齐</a></li>
@@ -233,6 +234,14 @@
         <p>对生成model和connect功能暂时没有开发（connect严重依赖于gen_agent等公共环境的约定俗成，生成model单纯是我自己习惯先写model再集成），之后有进一步的需求之后再进行开发吧</p>
         <div class="details-container">
             <a class="details-link" href="https://blog.csdn.net/moon9999/article/details/128123387" target="_blank">查看详情</a>
+        </div>
+    </article>
+
+    <article id="script-gen_dut_inst">
+        <h3>gen_dut_inst</h3>
+        <p>在目前的gen_uvm_tb脚本中，生成的代码借助了verilog-mode来进行dut的例化，而与agent之间的连线则需要手动来处理。因此，独立做了gen_dut_inst脚本来作为gen_uvm_tb的补充，以完善该功能同时避免影响主脚本的代码生成。</p>
+        <div class="details-container">
+            <a class="details-link" href="./gen_dut_inst/gen_dut_inst.html" target="_blank">查看详情</a>
         </div>
     </article>
 
